@@ -1,0 +1,152 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  /* === Modules Order === */
+  "modules-left": [
+    "custom/archicon",
+    "clock",
+    "battery",
+    "custom/media"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "wlr/taskbar",
+    "idle_inhibitor",
+    "pulseaudio/slider",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "hyprland/language",
+    "custom/reboot",
+    "custom/power"
+  ],
+  /* === Modules Left === */
+  "custom/archicon": {
+    "format": "",
+    "on-click": "wofi --show drun",
+    "tooltip": false
+  },
+  "clock": {
+    "timezone": "CET",
+    "format": "{:%H:%M  %d/%m}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month"
+    }
+  },
+  "battery": {
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{capacity}% 󱐋",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time}",
+      "tooltip-format": "{timeTo}\nHealt: {health}%"
+  },
+  "custom/media": {
+      "format": "{icon} {0}",
+      "format-icons": {
+          "spotify": "",
+          "default": ""
+      },
+      "escape": true,
+      "return-type": "json",
+      "max-length": 40,
+      "on-click": "playerctl play-pause",
+      "smooth-scrolling-threshold": 10,
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+
+  /* === Modules Center === */
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "persistent-workspaces": {
+        "HDMI-A-2": [1, 2, 3, 4, 5],
+        "eDP-1": [6, 7, 8, 9, 10]
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "show-special": true
+  },
+  /* === Modules Right === */
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "active-first": true,
+    "tooltip-format": "{name}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "rofi"
+    ]
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio/slider": {
+    "format": "{volume}%",
+    "format-muted": " MUTE",
+    "step": 5,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": " {format_source}",
+    "format-icons": {
+      "default": [
+        "",
+        ""
+      ]
+    }
+  },
+  "network": {
+    "format": "{essid} {signalStrength}",
+    "format-ethernet": "{ifname} 󰈀",
+    "format-disconnected": " ",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "networkmanager_dmenu > /dev/null 2>&1"
+  },
+  "bluetooth": { 
+      "format": "󰂯",
+      "format-disabled": "󰂲",
+      "format-connected": "󰂱 {num_connections}",
+      "format-connected-battery": "󰥉 {device_battery_percentage}%",
+      "tooltip-format": "{status}",
+      "on-click": "blueman-manager"
+  },
+  "hyprland/language": {
+    "format": "{} ",
+    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+    "format-en": "ENG",
+    "format-it": "ITA"
+  },
+  "custom/reboot": {
+      "format": "",
+      "on-click": "zenity --question --text='Vuoi riavviare il pc?' && systemctl reboot",
+      "tooltip-format": "Reboot"
+  },
+  "custom/power": {
+      "format": "⏻",
+      "on-click": "zenity --question --text='Vuoi spegnere il pc?' && systemctl poweroff",
+      "tooltip-format": "Spegni"
+  }
+}

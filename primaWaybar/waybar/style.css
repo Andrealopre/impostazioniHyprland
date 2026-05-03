@@ -1,0 +1,278 @@
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 12px;
+  border-bottom: 0px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(34, 36, 54, 0.6);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* - Genera rules for visible modules -- */
+#custom-archicon,
+#clock,
+#battery,
+#custom-media,
+#idle_inhibitor,
+#pulseaudio,
+#pulseaudio-slider,
+#network,
+#bluetooth,
+#language {
+  color: #161320;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+}
+#custom-reboot {
+    background: #F8BD96;
+    color: #161320;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 5px;
+}
+#custom-power {
+    background: #F28FAD;
+    color: #161320;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 12px;
+    margin-right: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#custom-reboot:hover, #custom-power:hover {
+    opacity: 0.8;
+}
+
+
+
+#bluetooth {
+    background: #89B4FA; /* A nice Blue */
+    color: #161320;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#bluetooth.connected {
+    background: #B4BEFE; /* A lighter blue when connected */
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#bluetooth.disabled {
+    background: #45475a; /* Greyish when off */
+    color: #bac2de;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Separation to the left */
+#custom-archicon,
+#idle_inhibitor {
+  margin-left: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Separation to the rigth */
+#clock,
+#battery {
+    background: #FAE3B0;
+    color: #161320;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 10px;
+}
+#battery.charging, #battery.plugged {
+    background: #A6E3A1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 10px;
+}
+#battery.critical:not(.charging) {
+    background: #F38BA8;
+    color: #FFFFFF;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 10px;
+}
+
+#language {
+  margin-right: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#custom-archicon {
+  font-size: 20px;
+  color: #89B4FA;
+  background: #161320;
+  padding-right: 17px;
+}
+
+#clock {
+  background: #ABE9B3;
+}
+
+#custom-media {
+    background-color: #cba6f7; /* Catppuccin Mauve */
+    color: #1e1e2e;
+    border-radius: 16px;
+    padding: 0 12px;
+    margin: 4px;
+    font-weight: bold;
+}
+
+#custom-media.spotify {
+    background-color: #1ed760;
+    color: #000000;
+}
+
+
+/* Modules center */
+#workspaces {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 6px 5px;
+  padding: 0px 6px;
+}
+
+#workspaces button {
+  color: #B5E8E0;
+  background: transparent;
+  padding: 4px 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#workspaces button.occupied {
+  color: #A6E3A1;
+}
+
+#workspaces button.active {
+  color: #89B4FA;
+  text-shadow: 0 0 4px #ABE9B3;
+}
+
+#workspaces button:hover {
+  color: #89B4FA;
+}
+
+#workspaces button.active:hover {}
+
+/* Modules right */
+#taskbar {
+  background: transparent;
+  border-radius: 10px;
+  padding: 0px 5px;
+  margin: 6px 5px;
+}
+
+#taskbar button {
+  padding: 0px 5px;
+  margin: 0px 3px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+#taskbar button.active {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#taskbar button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#idle_inhibitor {
+  background: #B5E8E0;
+  padding-right: 15px;
+}
+
+#pulseaudio {
+  min-width: 55px;
+  color: #1A1826;
+  background: #F5E0DC;
+}
+
+#pulseaudio-slider {
+  color: #1A1826;
+  background: #E8A2AF;
+  min-width: 100px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 0 10px;
+  border-radius: 0;
+}
+
+#pulseaudio-slider trough {
+    min-height: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+#pulseaudio-slider highlight {
+    min-height: 8px;
+    background-color: #161320;
+    border-radius: 5px;
+}
+
+#pulseaudio-slider slider {}
+
+
+#network {
+  background: #CBA6F7;
+  padding-right: 13px;
+}
+
+#network:hover {
+    opacity: 0.8;
+}
+
+#language {
+  background: #A6E3A1;
+  padding-right: 15px;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #BF616A;
+    color: #B5E8E0;
+  }
+}
