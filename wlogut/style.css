@@ -1,5 +1,5 @@
 /* @import "$HOME/.config/colors/colors.css" */
-@import "../colors/colors.css";
+@import url("../colors/colors.css");
 
 @keyframes glowing {
     0% {
@@ -48,21 +48,25 @@ button:hover {
 }
 
 #lock {
-    background-image: image(url("./icons/lock.png"));
-}
-
-#suspend {
-    background-image: image(url("./icons/suspend.png"));
-}
-
-#shutdown {
-    background-image: image(url("./icons/shutdown.png"));
-}
-
-#reboot {
-    background-image: image(url("./icons/reboot.png"));
+    background-image: url("./icons/lock.png");
 }
 
 #logout {
-    background-image: image(url("./icons/logout.png"));
+    background-image: url("./icons/logout.png");
+}
+
+#suspend {
+    background-image: url("./icons/sleep.png");
+}
+
+#shutdown {
+    background-image: url("./icons/power.png");
+}
+
+#reboot {
+    background-image: url("./icons/restart.png");
+}
+
+#hibernate {
+    background-image: url("./icons/hibernate.png");
 }
