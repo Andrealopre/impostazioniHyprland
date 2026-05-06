@@ -146,45 +146,59 @@ tooltip {
 
 /* Mpris widget */
 @define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
-@define-color mpris-button-hover rgba(0, 0, 0, 0.5);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.1);
 
-.widget-mpris .widget-mpris-player {
-  padding: 16px;
-  margin: 10px 15px;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.65);
+.widget-mpris-album-art {
+	border-radius: var(--border-radius);
+	margin: 6px 4px;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-album-art {
-  border-radius: 12px;
-  min-width: 80px;
-  min-height: 80px;
-  background-size: cover;
-  background-color: #111111;
+.widget-mpris-title {
+	font-weight: 700;
+	font-size: 1.2rem;
+	margin: 0 3px;
+}
+ 
+.widget-mpris-subtitle {
+	color: #787c99;
+	font-weight: 700;
+	font-size: 0.9rem;
+	margin: 0 3px;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin: 0px 8px 8px 8px;
+.mpris-background {
+	border-radius: 14px;
+	margin: 3px;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
-  font-size: 1rem;
+.widget-mpris {
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
 }
 
-.widget-mpris .widget-mpris-player > box > button:hover {
-  background-color: @mpris-button-hover;
+.mpris-overlay {
+	border-radius: var(--border-radius);
+	padding: 10px;
+	background: rgba(8, 8, 11, 0.9);
 }
 
-.widget-mpris > box > button:hover {
-  background: alpha(@select, 0.6);
+/* Control buttons container  */
+.mpris-overlay > box:last-child {
+	border-radius: var(--border-radius-xl);
+	padding: 0 5px;
+	background: alpha(@hover, .6);
 }
 
-.widget-mpris-player-icon {
-  display: none;
+/* Control buttons */
+.widget-mpris-player button {
+	padding: 5px;
+	margin: 0 2.5px;
+}
+
+/* Hover for control buttons */
+.widget-mpris-player button:hover {
+	border-radius: var(--border-radius-s);
+	background: @hover;
 }
 
 /* Volume widget */

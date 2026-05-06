@@ -1,7 +1,7 @@
 {
     "modules-left": ["custom/power", "hyprland/workspaces"],
-    "modules-center": ["custom/media"],
-    "modules-right": ["tray", "bluetooth", "network", "battery", "pulseaudio", "clock"],
+    "modules-center": ["mpris"],
+    "modules-right": ["tray", "custom/search", "bluetooth", "network", "battery", "pulseaudio", "clock"],
     
 
     "custom/power": {
@@ -18,26 +18,30 @@
         "cursor": true
     },
 
-    "custom/media": {
-      "format": "{icon} {0}",
-      "format-icons": {
-          "spotify": "",
-          "default": ""
-      },
-      "escape": true,
-      "return-type": "json",
-      "max-length": 40,
-      "on-click": "playerctl play-pause",
-      "smooth-scrolling-threshold": 10,
-      "on-scroll-up": "playerctl next",
-      "on-scroll-down": "playerctl previous",
-      "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+        "max-length": 40,
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵",
+            "spotify": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": ["firefox"]
     },
 
     "tray": {
         "icon-size": 20,
         "spacing": 10,
         "cursor": true
+    },
+
+    "custom/search": {
+        "format": "",
+        "on-click": "wofi --show drun"
     },
 
     "bluetooth": {
@@ -53,7 +57,7 @@
         "format-linked": "  Linked (No IP)",
         "format-disconnected": "  Disconnected",
         "tooltip": false,
-        "on-click": "networkmanager_dmenu"
+        "on-click": "kitty -e nmtui"
     },
 
     "battery": {
@@ -68,8 +72,7 @@
         "format-charging": " {capacity}%",
         "format-alt": "{icon} {capacity}%",
         "format-icons": [" ", " ", " ", " ", " "],
-        "tooltip-format": "{time}",
-        "cursor": false
+        "tooltip-format": "{time}"
     },
 
     "pulseaudio": {

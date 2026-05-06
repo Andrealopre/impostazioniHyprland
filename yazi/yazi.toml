@@ -1,0 +1,30 @@
+[mgr]
+show_hidden = true
+sort_by = "natural"
+linemode = "mtime"
+
+[preview]
+
+[opener]
+video = [
+    { run = 'mpv "$@"', orphan = true }
+]
+
+image = [
+    { run = 'imv "$@"', orphan = true }
+]
+
+edit = [
+    { run = 'nvim "$@"', block = true }
+]
+
+pdf = [
+    { run = 'zathura "$@"', orphan = true }
+]
+
+[open]
+rules = [
+    { mime = "application/pdf", use = "pdf" },
+    { mime = "image/*", use = "image" },
+    { mime = "video/*", use = "video" }
+]

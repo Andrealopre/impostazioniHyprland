@@ -49,8 +49,9 @@ tooltip {
 }
 
 #custom-power,
-#custom-media,
+#mpris,
 #tray,
+#custom-search,
 #bluetooth,
 #network,
 #battery,
@@ -62,6 +63,8 @@ tooltip {
 }
 
 #custom-power:hover,
+#custom-media:hover,
+#custom-search:hover,
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
@@ -96,16 +99,8 @@ tooltip {
     padding: 0px 10px 0 15px;
 }
 
-#custom-media {
-    background-color: #cba6f7; /* Catppuccin Mauve */
-    color: #1e1e2e;
-    border-radius: 16px;
-    padding: 0 12px;
-    margin: 4px;
-    font-weight: bold;
-}
-
-#custom-media.spotify {
-    background-color: #1ed760;
-    color: #000000;
+#mpris {
+    background-color: rgba(17, 17, 27, 0.5);
+    border-radius: 10px;
+    margin-right: 10px;
 }
